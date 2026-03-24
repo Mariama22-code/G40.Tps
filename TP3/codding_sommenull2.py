@@ -1,4 +1,3 @@
-#==========EXO1===========#             
 def somme_nulle_deux(tab):
     vus = set()
 
