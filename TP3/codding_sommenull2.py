@@ -1,15 +1,12 @@
 def somme_nulle_deux(tab):
-    vus = set()
-
-    for x in tab:
-        if -x in vus:
-            return [x, -x]
-        vus.add(x)
-
+    for i in range(len(tab)):
+        for j in range(i + 1, len(tab)):
+            if tab[i] + tab[j] == 0:
+                return [tab[i], tab[j]]
     return None
 
 
-entree = input("EXO1 :Entrez des nombres séparés par des espaces : ")
+entree = input("EXO1 : Entrez des nombres séparés par des espaces : ")
 tab = list(map(int, entree.split()))
 
 resultat = somme_nulle_deux(tab)
