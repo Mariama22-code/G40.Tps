@@ -12,7 +12,6 @@ Quand il reçoit un message, il l'affiche avec l'adresse du client et répond av
 Le client crée une socket UDP, envoie la date et l'heure actuelle au serveur sur `127.0.0.1:1060`, affiche sa propre adresse socket et reçoit la réponse du serveur.
 
 -------------------------------------------------------------------------------------------------------
-
 ## Response 2 — Les fonctions utilisées :
 
 | Fonction | Rôle |
