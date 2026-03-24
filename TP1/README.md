@@ -1,8 +1,7 @@
 # G40.Tps
-
 Nom : Mariama Abdourahamane Kassoum  
 ---------------------------------------------------------------------------------------------------
-
+### TP1 :
 ## Response 1 — Les deux scripts:
 
 ### server.py
