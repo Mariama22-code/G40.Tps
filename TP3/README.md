@@ -1,3 +1,9 @@
+
+# G40.Tps
+Nom : Mariama Abdourahamane Kassoum  
+---------------------------------------------------------------------------------------------------
+### TP3 :
+
 ### Thread : 
 Le serveur est mono-tâche, il ne peut gérer qu’un seul client à la fois.
 Pour permettre la communication avec plusieurs clients, on utilise des threads. Chaque client est géré dans un thread différent.
