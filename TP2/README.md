@@ -1,5 +1,7 @@
-
-
+# G40.Tps
+Nom : Mariama Abdourahamane Kassoum  
+---------------------------------------------------------------------------------------------------
+### TP2 :
 
 ## Exercice 1 : Peut-on utiliser le polymorphisme : 
 Oui, on peut regrouper le code dans des classes pour mieux organiser le programme.
