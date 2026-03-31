@@ -39,6 +39,31 @@ Les raw sockets avec IPPROTO\_RAW sont bloquées sur Windows pour des raisons de
 Cette restriction est imposée directement par Microsoft au niveau du système d'exploitation. Aucune modification du code Python ne peut contourner cette limitation. La seule solution est d'utiliser un système Linux qui autorise les raw sockets avec les droits root.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Limites des Raw Sockets
+
+- **Windows bloque les raw sockets** : Microsoft interdit leur utilisation pour des raisons de sécurité, même avec les droits administrateur. Impossible d'envoyer des paquets raw sur Windows.
+- **Droits root obligatoires sur Linux** : Sur Linux, les raw sockets nécessitent obligatoirement les droits root. Un utilisateur normal ne peut pas les utiliser.
+- **Construction manuelle des entêtes** : Avec les raw sockets, le développeur doit construire manuellement les entêtes IP et TCP, ce qui est complexe et source d'erreurs.
+- **Pas de gestion automatique des erreurs** : Contrairement à TCP, les raw sockets ne gèrent pas automatiquement les retransmissions, l'ordre des paquets ou les accusés de réception.
+- **Difficulté de débogage** : Les erreurs au niveau des entêtes sont difficiles à détecter car le système ne remonte pas d'erreurs explicites.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Comparatif Raw Socket vs TCP vs UDP
+
+| Critère | Raw Socket | TCP (SOCK_STREAM) | UDP (SOCK_DGRAM) |
+|---|---|---|---|
+| Couche OSI | Couche 3 (Réseau) | Couche 4 (Transport) | Couche 4 (Transport) |
+| Mode connexion | Aucun protocole imposé | Mode connecté | Mode non connecté |
+| Entête | Construite manuellement | Gérée automatiquement | Gérée automatiquement |
+| Fiabilité | Non garantie | Garantie | Non garantie |
+| Accusé de réception | Non | Oui | Non |
+| Ordre des paquets | Non garanti | Garanti | Non garanti |
+| Complexité | Très élevée | Faible | Faible |
+| Utilisation | Analyse réseau, outils type Wireshark | Chat, HTTP, FTP | Streaming, jeux en ligne |
+| Windows | Bloqué | Autorisé | Autorisé |
+| Linux | Autorisé (root) | Autorisé | Autorisé |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Application de chat — Modification des clients
 Le code source des clients des TPs précédents a été modifié pour utiliser une raw socket au lieu de SOCK\_DGRAM ou SOCK\_STREAM.
 Pour chaque client, la modification consiste à :
