@@ -41,5 +41,5 @@ class Game(object):
 game = Game(2, 10)
 game.listen("127.0.0.1", 8080)
 
-game.communicate_with_client(0)  # joueur 0 joue en premier
-game.communicate_with_client(1)  # joueur 1 joue ensuite
+game.communicate_with_client(0)  
+game.communicate_with_client(1)
